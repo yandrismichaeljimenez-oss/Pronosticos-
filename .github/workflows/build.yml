@@ -4,21 +4,22 @@ jobs:
   build:
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: '3.10'
       - name: Install dependencies
         run: |
           sudo apt update
-          sudo apt install -y openjdk-17-jdk zip unzip libffi-dev libssl-dev
+          sudo apt install -y openjdk-17-jdk zip unzip python3-pip libffi-dev libssl-dev
           pip install --upgrade pip
           pip install buildozer cython==0.29.33
       - name: Build APK
-        run: buildozer android debug
+        run: |
+          yes | buildozer android debug
       - name: Upload APK
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: Pronosticos-APK
           path: bin/*.apk
