@@ -1,21 +1,18 @@
 [app]
 title = Pronosticos Fijas
 package.name = pronosticosfijas
-package.domain = com.cuba.fijas
+package.domain = com.yandris.pronosticos
 source.dir =.
 source.include_exts = py,png,jpg,kv,atlas
-version = 1.0
-requirements = python3,kivy,requests,urllib3
+version = 0.1
+requirements = python3,kivy
 orientation = portrait
-fullscreen = 0
-android.permissions = INTERNET
 
 [buildozer]
 log_level = 2
 
-[app:build]
-
-[buildozer:android]
+[app:android]
 android.api = 33
 android.minapi = 21
 android.ndk = 25b
+android.accept_sdk_license_agreement = True
